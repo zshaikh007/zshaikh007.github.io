@@ -1,0 +1,158 @@
+# zshaikh007.github.io
+//Tutoring Project Website
+
+var bubbleX=400;
+var bubbleY=400;
+var bubbleX2=0;
+
+var fishbluex = 49;//Blue fish movement
+var fishbrownx = 100; //brown fish movement
+var fishpinkx = 175; //pink fish movement
+var fishmaroonx = 50; //maroon fish movement
+var fishpurplex = 100; //peurple fish
+
+//Drawing Fish here
+
+var drawFish= function(centerX,centerY,bodyLength,bodyHeight,R,G,B){
+
+noStroke();
+fill(R,G,B);
+
+// body
+
+ellipse(centerX, centerY, bodyLength, bodyHeight);
+
+// tail
+
+fill(R*2.5, G*2.5, B*2.5);
+var tailWidth = bodyLength/4;
+var tailHeight = bodyHeight/2;
+triangle(centerX-bodyLength/2, centerY,
+         centerX-bodyLength/2-tailWidth, centerY-tailHeight,
+         centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+         
+// eye
+
+fill(R*2.5,G*2.5,B*2.5);
+ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5);
+
+};
+
+//drwing pebbles here
+
+var drawPebble =function(pebbleX,pebbleY,pebbleW,pebbleH,pebbleR,pebbleG,pebbleB){
+fill(pebbleR,pebbleG,pebbleB);
+ellipse(pebbleX,pebbleY,pebbleW,pebbleH);
+
+fill(pebbleR-30,pebbleG-30,pebbleB-30);
+ellipse(pebbleX-10,pebbleY-10,pebbleW+5,pebbleH+5);
+
+fill(pebbleR-40,pebbleG-10,pebbleB-30);
+ellipse(pebbleX-15,pebbleY,pebbleW,pebbleH);
+
+fill(pebbleR-60,pebbleG-20,pebbleB-50);
+ellipse(pebbleX-30,pebbleY+10,pebbleW-3,pebbleH-3);
+
+fill(pebbleR-80,pebbleG-30,pebbleB-30);
+ellipse(pebbleX-50,pebbleY,pebbleW,pebbleH);
+
+};
+
+
+
+//Moving Fish and Bubbles
+
+draw = function(){
+    
+
+background(89, 216, 255);
+    
+
+//bubbles
+
+
+noStroke();
+
+fill(250, 250, 250);
+
+ellipse(bubbleX,bubbleY,5,5);
+ellipse(bubbleX-40,bubbleY-8,5,5);
+ellipse(bubbleX-80,bubbleY-5,5,5);
+ellipse(bubbleX-120,bubbleY-6,5,5);
+ellipse(bubbleX-160,bubbleY-5,5,5);
+ellipse(bubbleX-200,bubbleY-10,5,5);
+ellipse(bubbleX-240,bubbleY-5,5,5);
+ellipse(bubbleX-280,bubbleY-12,5,5);
+ellipse(bubbleX-320,bubbleY-5,5,5);
+ellipse(bubbleX-360,bubbleY-15,5,5);
+
+ellipse(bubbleX2,bubbleY,5,5);
+ellipse(bubbleX2+40,bubbleY,5,5);
+ellipse(bubbleX2+60,bubbleY,5,5);
+ellipse(bubbleX2+80,bubbleY,5,5);
+ellipse(bubbleX2+105,bubbleY,5,5);
+ellipse(bubbleX2+124,bubbleY,5,5);
+ellipse(bubbleX2+168,bubbleY,5,5);
+ellipse(bubbleX2+96,bubbleY,5,5);
+ellipse(bubbleX2+87,bubbleY,5,5);
+
+
+//Blue Fish movement
+
+drawFish(fishbluex,46,50,50,20,50,150); 
+
+//brown Fish movement
+
+drawFish(fishbrownx,115,75,50,200,70,25);
+
+//Pink Fish movement
+
+drawFish(fishpinkx,180,50,75,255,95,90); 
+
+//maroon fish movement
+
+drawFish(fishmaroonx,300,60,30,215,70,89); 
+
+drawFish(fishpurplex,245,40,40,170,95,190); 
+
+
+drawPebble(390,390,30,30,255,255,255);
+drawPebble(350,390,25,25,200,200,200);
+drawPebble(320,390,35,20,150,150,150);
+drawPebble(290,390,35,25,100,100,100);
+drawPebble(260,390,35,20,90,180,90);
+drawPebble(190,390,35,25,1,150,180);
+drawPebble(160,390,30,30,255,255,255);
+drawPebble(130,390,25,25,200,200,200);
+drawPebble(100,390,35,20,150,150,150);
+drawPebble(90,390,35,25,100,100,100);
+drawPebble(60,390,35,20,90,180,90);
+drawPebble(30,390,35,25,1,150,180);
+
+
+bubbleX--;
+bubbleY--;
+bubbleX2++;
+
+fishbluex++; //update fish position 1 pixel
+fishbrownx++;
+fishpinkx++;
+fishmaroonx++;
+fishpurplex++;
+
+if (fishbluex > 400) {   //reverse fish blue
+
+   fishbluex = fishbluex - 1;
+   
+}
+
+if (fishbluex < 1) {
+
+   fishbluex = fishbluex + 1;
+   
+}
+
+};
+
+
+
